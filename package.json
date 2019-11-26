@@ -1,7 +1,11 @@
 {
   "name": "nhsuk-react-components",
-  "version": "1.0.0-alpha.1",
-  "main": "index.js",
+  "version": "1.0.0-alpha.2",
+  "author": {
+    "email": "me@tomjuddcooper.co.uk",
+    "name": "Thomas Judd-Cooper",
+    "url": "https://tomjuddcooper.co.uk"
+  },
   "license": "MIT",
   "devDependencies": {
     "@storybook/addon-info": "^5.2.1",
@@ -54,10 +58,14 @@
   },
   "scripts": {
     "storybook": "start-storybook",
+    "build": "rollup -c",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js"
 }

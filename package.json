@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-react-components",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "author": {
     "email": "me@tomjuddcooper.co.uk",
     "name": "Thomas Judd-Cooper",
@@ -8,6 +8,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.7.4",
     "@storybook/addon-info": "^5.2.1",
     "@storybook/react": "^5.2.1",
     "@types/classnames": "^2.2.9",
@@ -16,7 +18,7 @@
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.12",
     "@types/react": "^16.9.3",
-    "@types/react-dom": "^16.9.1",
+    "@types/react-dom": "^16.9.3",
     "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.19",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
@@ -38,8 +40,12 @@
     "jest": "^24.9.0",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
+    "react": "^16.9.3",
     "react-docgen-typescript-loader": "^3.2.1",
+    "react-dom": "^16.9.3",
     "rollup": "^1.21.4",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-scss": "^1.0.2",
     "rollup-plugin-typescript2": "^0.24.2",
     "sass-loader": "^8.0.0",
     "ts-jest": "^24.2.0",
@@ -52,13 +58,16 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.7.4",
     "classnames": "^2.2.6",
-    "nhsuk-frontend": "^3.0.0",
-    "react": "^16.9.3"
+    "nhsuk-frontend": "^3.0.0"
   },
   "scripts": {
     "storybook": "start-storybook",
     "build": "rollup -c",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "build:css": "node-sass -o css ./src/styles/full/",
     "test": "jest",
     "test:watch": "jest --watch"
   },

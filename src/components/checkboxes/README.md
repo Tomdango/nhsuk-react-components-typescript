@@ -19,18 +19,11 @@ import { Checkboxes } from "nhsuk-react-components";
 
 const Element = () => {
     return (
-        <CareCard type="non-urgent">
-            <CareCard.Heading>Speak to a GP if:</CareCard.Heading>
-            <CareCard.Content>
-                <ul>
-                    <li>you're not sure it's chickenpox</li>
-                    <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
-                    <li>your child is <a href="https://www.nhs.uk/conditions/dehydration">dehydrated</a></li>
-                    <li>you're concerned about your child or they get worse</li>
-                </ul>
-                <p>Tell the receptionist you think it's chickenpox before going in. They may recommend a special appointment time if other patients are at risk.</p>
-            </CareCard.Content>
-        </CareCard>
+        <Checkboxes name="nationality" id="nationality">
+            <Checkboxes.Box value="british">British</Checkboxes.Box>
+            <Checkboxes.Box value="irish">Irish</Checkboxes.Box>
+            <Checkboxes.Box value="other">Citizen of another country</Checkboxes.Box>
+        </Checkboxes>
     );
 }
 ```

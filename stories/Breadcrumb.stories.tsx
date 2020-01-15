@@ -10,5 +10,6 @@ stories.add('Breadcrumb', () => (
     <Breadcrumb.Item href="/level/one">Level One</Breadcrumb.Item>
     <Breadcrumb.Item href="/level/two">Level Two</Breadcrumb.Item>
     <Breadcrumb.Item href="/level/three">Level Three</Breadcrumb.Item>
+    <Breadcrumb.Back href="/level/three">Back to Level Three</Breadcrumb.Back>
   </Breadcrumb>
 ));

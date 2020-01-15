@@ -7,6 +7,7 @@ type listType = 'do' | 'dont';
 
 interface DoDontListProps extends HTMLProps<HTMLDivElement> {
   listType: listType;
+  heading?: string;
   headingLevel?: HeadingLevelType;
 }
 
@@ -16,11 +17,18 @@ interface DoDontList extends React.FC<DoDontListProps> {
 
 const DoDontListContext = createContext<listType>('do');
 
-const DoDontList: DoDontList = ({ className, listType, children, headingLevel, ...rest }) => {
+const DoDontList: DoDontList = ({
+  className,
+  listType,
+  children,
+  heading,
+  headingLevel,
+  ...rest
+}) => {
   return (
     <div className={classNames('nhsuk-do-dont-list', className)} {...rest}>
       <HeadingLevel className="nhsuk-do-dont-list__label" headingLevel={headingLevel}>
-        {listType === 'do' ? 'Do' : "Don't"}
+        {heading || listType === 'do' ? 'Do' : "Don't"}
       </HeadingLevel>
       <ul
         className={classNames(
@@ -35,8 +43,12 @@ const DoDontList: DoDontList = ({ className, listType, children, headingLevel, .
   );
 };
 
-const DoDontItem: React.FC<HTMLProps<HTMLLIElement>> = ({ className, children, ...rest }) => {
-  const listType: listType = useContext(DoDontListContext);
+interface DoDontItemProps extends HTMLProps<HTMLLIElement> {
+  listItemType?: listType;
+}
+
+const DoDontItem: React.FC<DoDontItemProps> = ({ className, children, listItemType, ...rest }) => {
+  const listType: listType = listItemType || useContext(DoDontListContext);
   return (
     <li {...rest}>
       {listType === 'do' ? <Tick /> : <Cross />}

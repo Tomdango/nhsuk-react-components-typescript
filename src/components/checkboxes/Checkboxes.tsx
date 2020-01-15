@@ -3,9 +3,9 @@ import React, {
   useContext,
   useState,
   ReactNode,
-  MouseEvent as ReactMouseEvent,
   useEffect,
   PureComponent,
+  Ref,
 } from 'react';
 import classNames from 'classnames';
 import Label from '../label';
@@ -16,6 +16,7 @@ import CheckboxContext, { ICheckboxContext } from './CheckboxContext';
 
 interface BoxProps extends HTMLProps<HTMLInputElement> {
   hint?: string;
+  inputRef?: Ref<HTMLInputElement>;
   conditional?: ReactNode;
 }
 
@@ -28,25 +29,12 @@ const Box: React.FC<BoxProps> = ({
   checked,
   onClick,
   name,
+  inputRef,
   ...rest
 }) => {
   const [isChecked, setIsChecked] = useState<boolean>(Boolean(checked));
   const [boxId, setBoxId] = useState<string | undefined>(undefined);
   const context = useContext<ICheckboxContext>(CheckboxContext);
-
-  const handleClick = (event: ReactMouseEvent<HTMLInputElement, MouseEvent>) => {
-    if (typeof checked === 'undefined') {
-      setIsChecked(!isChecked);
-      context.onChange(event);
-    } else {
-      setIsChecked(checked);
-      context.onChange(event);
-    }
-
-    if (onClick) {
-      onClick(event);
-    }
-  };
 
   useEffect(() => {
     if (typeof checked !== 'undefined' && checked !== isChecked) {
@@ -60,7 +48,7 @@ const Box: React.FC<BoxProps> = ({
     } else if (context.isCheckbox) {
       setBoxId(context.getBoxId());
     }
-  }, []);
+  }, [id]);
 
   return (
     <div className={classNames('nhsuk-checkboxes__item', className)}>
@@ -68,8 +56,8 @@ const Box: React.FC<BoxProps> = ({
         className="nhsuk-checkboxes__input"
         {...rest}
         id={boxId}
+        ref={inputRef}
         name={context.isCheckbox ? name || context.name : name}
-        onClick={handleClick}
         checked={isChecked || checked}
       ></input>
       <Label
@@ -137,16 +125,6 @@ class Checkboxes extends PureComponent<CheckboxesProps, CheckboxesState> {
     return `${idPrefix || name}-${this.boxCount}`;
   };
 
-  onChange = (e: ReactMouseEvent<HTMLInputElement, MouseEvent>): void => {
-    const { onChange, onInput } = this.props;
-    if (onChange) {
-      onChange(e);
-    }
-    if (onInput) {
-      onInput(e);
-    }
-  };
-
   render() {
     const { error, className, id, children, ...rest } = this.props;
     const { name } = this.state;
@@ -157,9 +135,7 @@ class Checkboxes extends PureComponent<CheckboxesProps, CheckboxesState> {
     }
 
     return (
-      <CheckboxContext.Provider
-        value={{ isCheckbox: true, name, getBoxId: this.getBoxId, onChange: this.onChange }}
-      >
+      <CheckboxContext.Provider value={{ isCheckbox: true, name, getBoxId: this.getBoxId }}>
         <div className={classNames('nhsuk-checkboxes', className)} id={id} {...rest}>
           {error && typeof error === 'string' ? (
             <ErrorMessage id={id ? `${id}--error` : undefined}>{error}</ErrorMessage>

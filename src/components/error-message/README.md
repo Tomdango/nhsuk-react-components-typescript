@@ -21,4 +21,3 @@ const Element = () => {
     );
 }
 ```
-y

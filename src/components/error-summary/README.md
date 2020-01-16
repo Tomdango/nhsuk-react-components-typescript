@@ -1,12 +1,15 @@
-# DoDontList
+# ErrorSummary
 
-This component can be found in the `nhsuk-frontend` repository [here](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/do-dont-list).
+This component can be found in the `nhsuk-frontend` repository [here](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-summary).
 
 ## Implementation Notes
 
-The `DoDontList` component has one subcomponent: `DoDontList.Item`.
+The `ErrorSummary` component has four subcomponents:
 
-As long as a `listType` is supplied to the `DoDontList` component, all subcomponents will render as desired. If you require a `DoDontList.Item` to be different, a `listItemType` prop can be supplied to force the type.
+- `ErrorSummary.Title`
+- `ErrorSummary.Body`
+- `ErrorSummary.List`
+- `ErrorSummary.Item`
 
 ## Usage
 
@@ -15,19 +18,24 @@ As long as a `listType` is supplied to the `DoDontList` component, all subcompon
 ### Standard
 
 ```jsx
-import { DoDontList } from "nhsuk-react-components";
+import { ErrorSummary } from "nhsuk-react-components";
 
 const Element = () => {
     return (
-        <DoDontList listType="do">
-            <DoDontList.Item>
-                cover blisters that are likely to burst with a soft plaster or dressing
-            </DoDontList.Item>
-            <DoDontList.Item>wash your hands before touching a burst blister</DoDontList.Item>
-            <DoDontList.Item>
-                allow the fluid in a burst blister to drain before covering it with a plaster or dressing
-            </DoDontList.Item>
-        </DoDontList>
+        <ErrorSummary aria-labelledby="error-summary-title" role="alert" tabIndex={-1}>
+            <ErrorSummary.Title id="error-summary-title">There is a problem</ErrorSummary.Title>
+            <ErrorSummary.Body>
+                <p>Optional description of the errors and how to correct them</p>
+                <ErrorSummary.List>
+                    <ErrorSummary.Item href="#example-error-1">
+                        Link to error with explanation
+                    </ErrorSummary.Item>
+                    <ErrorSummary.Item href="#example-error-2">
+                        Link to error with explanation
+                    </ErrorSummary.Item>
+                </ErrorSummary.List>
+            </ErrorSummary.Body>
+        </ErrorSummary>
     );
 }
 ```

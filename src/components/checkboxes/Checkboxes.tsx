@@ -6,6 +6,7 @@ import React, {
   useEffect,
   PureComponent,
   Ref,
+  SyntheticEvent,
 } from 'react';
 import classNames from 'classnames';
 import Label from '../label';
@@ -89,9 +90,14 @@ Box.defaultProps = {
   type: 'checkbox',
 };
 
+interface CheckboxesEvent extends SyntheticEvent<HTMLInputElement> {
+  target: HTMLInputElement;
+}
+
 interface CheckboxesProps extends HTMLProps<HTMLDivElement> {
   error?: string | boolean;
   idPrefix?: string;
+  onChange?: (e: CheckboxesEvent) => any;
 }
 
 interface CheckboxesState {
@@ -126,7 +132,7 @@ class Checkboxes extends PureComponent<CheckboxesProps, CheckboxesState> {
   };
 
   render() {
-    const { error, className, id, children, ...rest } = this.props;
+    const { error, className, id, children, idPrefix, ...rest } = this.props;
     const { name } = this.state;
     const { isForm, setError } = this.context;
 

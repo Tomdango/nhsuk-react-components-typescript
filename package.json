@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-react-components",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-beta.3",
   "author": {
     "email": "me@tomjuddcooper.co.uk",
     "name": "Thomas Judd-Cooper",
@@ -74,7 +74,8 @@
     "test:watch": "jest --watch"
   },
   "files": [
-    "dist"
+    "dist",
+    "lib"
   ],
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",

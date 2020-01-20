@@ -5,7 +5,7 @@ interface PanelProps extends HTMLProps<HTMLDivElement> {
   labelProps?: HTMLProps<HTMLHeadingElement>;
   backToTopButton?: boolean;
   backToTopButtonText?: string;
-  backToTopLink?: string;https://www.ebuyer.com/913304-lg-34wl500-b-34-ultrawide-hd-led-ips-monitor-34wl500-b?gclid=Cj0KCQiAvJXxBRCeARIsAMSkApo0bGOlWltPThl8KnJqYqVfkdu0ZjnHkuYE9DIji3z5mfD8n2h8gMAaApw9EALw_wcBhttps://www.ebuyer.com/913304-lg-34wl500-b-34-ultrawide-hd-led-ips-monitor-34wl500-b?gclid=Cj0KCQiAvJXxBRCeARIsAMSkApo0bGOlWltPThl8KnJqYqVfkdu0ZjnHkuYE9DIji3z5mfD8n2h8gMAaApw9EALw_wcB
+  backToTopLink?: string;
   noResults?: boolean;
 }
 

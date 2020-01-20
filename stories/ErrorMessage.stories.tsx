@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ErrorMessage from '../src/components/error-message/full';
+import { ErrorMessage } from '../src';
 
 const stories = storiesOf('Error Message', module);
 

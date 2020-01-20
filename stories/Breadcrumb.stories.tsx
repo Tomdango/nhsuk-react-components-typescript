@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Breadcrumb from '../src/components/breadcrumb/full';
+import { Breadcrumb } from '../src';
 
 const stories = storiesOf('Breadcrumb', module);
 

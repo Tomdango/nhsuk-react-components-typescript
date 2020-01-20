@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Fieldset from '../src/components/fieldset/full';
+import { Fieldset } from '../src';
 
 const stories = storiesOf('Fieldset', module);
 

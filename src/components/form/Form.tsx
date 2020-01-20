@@ -2,10 +2,18 @@ import React, { HTMLProps, useState } from 'react';
 import classNames from 'classnames';
 import FormContext from './FormContext';
 
-const Form: React.FC<HTMLProps<HTMLFormElement>> = ({ className, ...rest }) => {
+interface FormProps extends HTMLProps<HTMLFormElement> {
+  disableErrorFromComponents?: boolean;
+  error?: boolean;
+}
+
+const Form: React.FC<FormProps> = ({ className, error, disableErrorFromComponents, ...rest }) => {
   const [errors, setErrors] = useState<Array<string>>([]);
 
   const setError = (name: string, hasError: boolean): void => {
+    if (disableErrorFromComponents) {
+      return;
+    }
     const hasExistingError = errors.includes(name);
     if (hasExistingError && !hasError) {
       const newErrors = errors.filter(x => x !== name);
@@ -15,7 +23,7 @@ const Form: React.FC<HTMLProps<HTMLFormElement>> = ({ className, ...rest }) => {
     }
   };
 
-  const hasErrors = errors.length > 0;
+  const hasErrors = error === undefined ? errors.length > 0 : error;
 
   return (
     <FormContext.Provider value={{ setError, isForm: true }}>

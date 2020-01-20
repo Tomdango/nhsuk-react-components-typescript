@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ContentsList from '../src/components/contents-list/full';
+import { ContentsList } from '../src';
 
 const stories = storiesOf('ContentsList', module);
 

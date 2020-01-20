@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ReviewDate from '../src/components/review-date/full';
+import { ReviewDate } from '../src';
 
 const stories = storiesOf('Review Date', module);
 

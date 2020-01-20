@@ -1,8 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Input from '../src/components/input/full';
-import Form from '../src/components/form';
+import { Input, Form } from '../src';
 
 const stories = storiesOf('Input', module);
 

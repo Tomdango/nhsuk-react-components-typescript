@@ -5,14 +5,18 @@ interface PanelProps extends HTMLProps<HTMLDivElement> {
   labelProps?: HTMLProps<HTMLHeadingElement>;
   backToTopButton?: boolean;
   backToTopButtonText?: string;
+  backToTopLink?: string;https://www.ebuyer.com/913304-lg-34wl500-b-34-ultrawide-hd-led-ips-monitor-34wl500-b?gclid=Cj0KCQiAvJXxBRCeARIsAMSkApo0bGOlWltPThl8KnJqYqVfkdu0ZjnHkuYE9DIji3z5mfD8n2h8gMAaApw9EALw_wcBhttps://www.ebuyer.com/913304-lg-34wl500-b-34-ultrawide-hd-led-ips-monitor-34wl500-b?gclid=Cj0KCQiAvJXxBRCeARIsAMSkApo0bGOlWltPThl8KnJqYqVfkdu0ZjnHkuYE9DIji3z5mfD8n2h8gMAaApw9EALw_wcB
+  noResults?: boolean;
 }
 
 const Panel: React.FC<PanelProps> = ({
   className,
   children,
+  noResults,
   label,
   labelProps,
   backToTopButton,
+  backToTopLink,
   backToTopButtonText,
   ...rest
 }) => (
@@ -23,16 +27,26 @@ const Panel: React.FC<PanelProps> = ({
           {label}
         </h2>
       ) : null}
-      <ul
-        className={classNames('nhsuk-list-panel__list', {
-          'nhsuk-list-panel__list--with-label': label,
-        })}
-      >
-        {children}
-      </ul>
+      {noResults ? (
+        <div
+          className={classNames('nhsuk-list-panel__box', {
+            'nhsuk-list-panel__box--with-label': label,
+          })}
+        >
+          <p className="nhsuk-list-panel--results-items__no-results">{children}</p>
+        </div>
+      ) : (
+        <ul
+          className={classNames('nhsuk-list-panel__list', {
+            'nhsuk-list-panel__list--with-label': label,
+          })}
+        >
+          {children}
+        </ul>
+      )}
       {backToTopButton ? (
         <div className="nhsuk-back-to-top">
-          <a className="nhsuk-back-to-top__link">
+          <a className="nhsuk-back-to-top__link" href={backToTopLink}>
             <svg
               className="nhsuk-icon nhsuk-icon__arrow-right"
               xmlns="http://www.w3.org/2000/svg"

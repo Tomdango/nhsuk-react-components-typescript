@@ -1,12 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { MouseEvent } from 'react';
 import { storiesOf } from '@storybook/react';
-import Radios from '../src/components/radios/full';
-import Form from '../src/components/form';
-import Fieldset from '../src/components/fieldset/full';
-import Hint from '../src/components/hint';
-import Button from '../src/components/button/Button';
-import Input from '../src/components/input/full';
+import { Radios, Form, Fieldset, Hint, Button, Input } from '../src';
 
 const stories = storiesOf('Radios', module);
 

@@ -1,11 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent, useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import Textarea from '../src/components/textarea/full';
-import { useState } from '@storybook/addons';
-import Form from '../src/components/form';
-import Button from '../src/components/button/Button';
-import Input from '../src/components/input/full';
+import { Textarea, Form, Button, Input } from '../src';
 
 const stories = storiesOf('Textarea', module);
 

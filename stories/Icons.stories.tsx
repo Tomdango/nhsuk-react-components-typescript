@@ -2,34 +2,34 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowRightCircle,
-  ChevronLeft,
-  ChevronRight,
-  Close,
-  SmallEmdash,
-  Cross,
-  Emdash,
-  Minus,
-  Plus,
-  Search,
-  Tick,
-} from '../src/components/icons/full';
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  ArrowRightCircleIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CloseIcon,
+  SmallEmdashIcon,
+  CrossIcon,
+  EmdashIcon,
+  MinusIcon,
+  PlusIcon,
+  SearchIcon,
+  TickIcon,
+} from '../src';
 
 const stories = storiesOf('Icons', module);
 
 stories
-  .add('ArrowLeft', () => <ArrowLeft />)
-  .add('ArrowRight', () => <ArrowRight />)
-  .add('ArrowRightCircle', () => <ArrowRightCircle />)
-  .add('ChevronLeft', () => <ChevronLeft />)
-  .add('ChevronRight', () => <ChevronRight />)
-  .add('Close', () => <Close />)
-  .add('Cross', () => <Cross />)
-  .add('SmallEmdash', () => <SmallEmdash />)
-  .add('Emdash', () => <Emdash />)
-  .add('Minus', () => <Minus />)
-  .add('Plus', () => <Plus />)
-  .add('Search', () => <Search />)
-  .add('Tick', () => <Tick />);
+  .add('ArrowLeft', () => <ArrowLeftIcon />)
+  .add('ArrowRight', () => <ArrowRightIcon />)
+  .add('ArrowRightCircle', () => <ArrowRightCircleIcon />)
+  .add('ChevronLeft', () => <ChevronLeftIcon />)
+  .add('ChevronRight', () => <ChevronRightIcon />)
+  .add('Close', () => <CloseIcon />)
+  .add('Cross', () => <CrossIcon />)
+  .add('SmallEmdash', () => <SmallEmdashIcon />)
+  .add('Emdash', () => <EmdashIcon />)
+  .add('Minus', () => <MinusIcon />)
+  .add('Plus', () => <PlusIcon />)
+  .add('Search', () => <SearchIcon />)
+  .add('Tick', () => <TickIcon />);

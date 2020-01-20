@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ActionLink from '../src/components/action-link/full';
+import { ActionLink } from '../src';
 
 const stories = storiesOf('ActionLink', module);
 

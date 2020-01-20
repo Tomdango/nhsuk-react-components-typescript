@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Panel from '../src/components/panel/full';
+import { Panel } from '../src';
 
 const stories = storiesOf('Panel', module);
 

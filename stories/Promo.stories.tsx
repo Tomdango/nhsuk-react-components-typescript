@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Promo from '../src/components/promo/full';
+import { Promo } from '../src';
 
 const stories = storiesOf('Promo', module);
 

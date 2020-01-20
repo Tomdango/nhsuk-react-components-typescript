@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import SkipLink from '../src/components/skip-link/full';
+import { SkipLink } from '../src';
 
 const stories = storiesOf('Skip Link', module);
 

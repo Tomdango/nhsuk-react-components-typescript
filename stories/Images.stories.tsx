@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Images from '../src/components/images/full';
+import { Images } from '../src';
 
 const stories = storiesOf('Images', module);
 

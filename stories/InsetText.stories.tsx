@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import InsetText from '../src/components/inset-text/full';
+import { InsetText } from '../src';
 
 const stories = storiesOf('Inset Text', module);
 

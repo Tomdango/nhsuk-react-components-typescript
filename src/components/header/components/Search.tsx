@@ -1,75 +1,41 @@
-import React, { useContext, useState, SyntheticEvent } from 'react';
-import { HeaderContext } from '../HeaderContext';
+import React, { HTMLProps, useContext, useEffect } from 'react';
+import { Search as SearchIcon, Close as CloseIcon } from '../../icons';
+import HeaderContext, { IHeaderContext } from '../HeaderContext';
 import classNames from 'classnames';
 
-const HeaderSearch: React.FC = () => {
-  const { onToggleSearch } = useContext(HeaderContext);
-  const [isToggled, setToggle] = useState(false);
-  const toggleSearch = (event: SyntheticEvent<HTMLButtonElement>): void => {
-    event.preventDefault();
-    setToggle(!isToggled);
-    onToggleSearch(!isToggled);
-  };
+export interface SearchProps extends HTMLProps<HTMLInputElement> {
+  visuallyHiddenText?: string;
+}
 
+const Search: React.FC<SearchProps> = ({ action, method, id, visuallyHiddenText, ...rest }) => {
+  const { setSearch, toggleSearch, searchOpen } = useContext<IHeaderContext>(HeaderContext);
+  useEffect(() => {
+    setSearch(true);
+    return () => setSearch(false);
+  }, []);
   return (
     <div className="nhsuk-header__search">
       <button
-        className={classNames('nhsuk-header__search-toggle', { 'is-active': isToggled })}
-        onClick={toggleSearch}
-        aria-controls="search"
+        className={classNames('nhsuk-header__search-toggle', { 'is-active': searchOpen })}
         aria-label="Open search"
+        aria-expanded={searchOpen ? 'true' : 'false'}
+        onClick={toggleSearch}
       >
-        <svg
-          className="nhsuk-icon nhsuk-icon__search"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-        </svg>
+        <SearchIcon />
         <span className="nhsuk-u-visually-hidden">Search</span>
       </button>
-      <div className={classNames('nhsuk-header__search-wrap', { 'js-show': isToggled })}>
-        <form
-          className="nhsuk-header__search-form"
-          id="search"
-          action="/search/"
-          method="get"
-          role="search"
-        >
-          <label className="nhsuk-u-visually-hidden">Search the NHS website</label>
-          <div className="autocomplete-container" id="autocomplete-container"></div>
-          <input
-            className="nhsuk-search__input"
-            id="search-field"
-            name="search-field"
-            type="search"
-            placeholder="Search"
-            autoComplete="off"
-          />
+      <div className={classNames('nhsuk-header__search-wrap', { 'js-show': searchOpen })}>
+        <form className="nhsuk-header__search-form" action={action} method={method} role="search">
+          <label className="nhsuk-u-visually-hidden" htmlFor={id}>
+            {visuallyHiddenText}
+          </label>
+          <input className="nhsuk-search__input" id={id} {...rest}></input>
           <button className="nhsuk-search__submit" type="submit">
-            <svg
-              className="nhsuk-icon nhsuk-icon__search"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-            </svg>
+            <SearchIcon />
             <span className="nhsuk-u-visually-hidden">Search</span>
           </button>
-          <button className="nhsuk-search__close" onClick={toggleSearch}>
-            <svg
-              className="nhsuk-icon nhsuk-icon__close"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-            </svg>
+          <button className="nhsuk-search__close">
+            <CloseIcon />
             <span className="nhsuk-u-visually-hidden">Close search</span>
           </button>
         </form>
@@ -78,4 +44,14 @@ const HeaderSearch: React.FC = () => {
   );
 };
 
-export default HeaderSearch;
+Search.defaultProps = {
+  method: 'get',
+  role: 'search',
+  id: 'search-field',
+  visuallyHiddenText: 'Search the NHS website',
+  type: 'search',
+  autoComplete: 'off',
+  placeholder: 'Search',
+};
+
+export default Search;

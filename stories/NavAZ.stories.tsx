@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import NavAZ from '../src/components/nav-a-z/full';
+import { NavAZ } from '../src';
 
 const stories = storiesOf('Nav A-Z', module);
 

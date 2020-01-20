@@ -1,10 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { MouseEvent } from 'react';
 import { storiesOf } from '@storybook/react';
-import Select from '../src/components/select/full';
-import Form from '../src/components/form';
-import Button from '../src/components/button/Button';
-import Input from '../src/components/input/full';
+import { Select, Form, Button, Input } from '../src';
 
 const stories = storiesOf('Select', module);
 

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Label from '../src/components/label/full';
+import { Label } from '../src';
 
 const stories = storiesOf('Label', module);
 

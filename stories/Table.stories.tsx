@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Table from '../src/components/table/full';
+import { Table } from '../src';
 
 const stories = storiesOf('Table', module);
 

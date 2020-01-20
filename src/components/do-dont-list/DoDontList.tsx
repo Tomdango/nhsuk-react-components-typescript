@@ -12,7 +12,7 @@ interface DoDontListProps extends HTMLProps<HTMLDivElement> {
 }
 
 interface DoDontList extends React.FC<DoDontListProps> {
-  Item: React.FC<HTMLProps<HTMLLIElement>>;
+  Item: React.FC<DoDontItemProps>;
 }
 
 const DoDontListContext = createContext<listType>('do');

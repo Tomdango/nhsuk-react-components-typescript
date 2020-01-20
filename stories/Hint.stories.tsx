@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Hint from '../src/components/hint/full';
+import { Hint } from '../src';
 
 const stories = storiesOf('Hint', module);
 

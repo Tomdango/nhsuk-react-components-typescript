@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import BackLink from '../src/components/back-link/full';
+import { BackLink } from '../src';
 
 const stories = storiesOf('BackLink', module);
 

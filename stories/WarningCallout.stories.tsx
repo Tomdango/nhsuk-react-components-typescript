@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import WarningCallout from '../src/components/warning-callout/full';
+import { WarningCallout } from '../src';
 
 const stories = storiesOf('Warning Callout', module);
 

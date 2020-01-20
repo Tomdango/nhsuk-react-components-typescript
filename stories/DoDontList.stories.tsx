@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import DoDontList from '../src/components/do-dont-list/full';
+import { DoDontList } from '../src';
 
 const stories = storiesOf('DoDontList', module);
 
